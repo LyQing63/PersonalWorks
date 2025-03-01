@@ -9,6 +9,58 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+// 用户表
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  name      String?
+  avatarUrl String?
+  role      Role      @default(USER)
+  active    Boolean
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+// 作品表
+model Project {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  demoUrl     String?
+  sourceUrl   String?
+  image       String?
+  githubUrl   String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  tags        Tag[]     @relation("ProjectTags")  // A project can have multiple tags
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  posts       Post[]    @relation("PostTags")  // A tag can be associated with multiple posts
+  projects    Project[] @relation("ProjectTags") // A tag can be associated with multiple projects
+}
+
+// 博客表
+model Post {
+  id          Int       @id @default(autoincrement())
+  title       String
+  fileName    String
+  content     String
+  image       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  published   Boolean   @default(false)
+  tags        Tag[]     @relation("PostTags")  // A post can have multiple tags
 }
