@@ -20,7 +20,7 @@ import { getTagsByProjectId } from '@/app/api/Tag/TagService'
 export default function ProjectsDisplay() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null);
-  
+
   const [projects, setProjects] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0)
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
@@ -34,11 +34,13 @@ export default function ProjectsDisplay() {
         if (projectRes == null) {
           throw new Error("Failed to fetch projects or projects is null")
         }
-        for (const project of projectRes) {
-          const tags = await getTagsByProjectId(project)
-          project.tags = tags.map(tag => tag.name);
-        }
-        setProjects([...projectRes])
+        const updatedProjects = await Promise.all(
+          projectRes.map(async (project) => ({
+            ...project,
+            tags: (await getTagsByProjectId(project)).map(tag => tag.name) || [],
+          }))
+        );
+        setProjects(updatedProjects);
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred when fetch projects data!")
       } finally {

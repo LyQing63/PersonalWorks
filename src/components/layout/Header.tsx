@@ -1,8 +1,7 @@
 "use client"
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
   Avatar,
   AvatarFallback,
@@ -25,8 +24,8 @@ const user = {
 }
 
 export default function Header() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null);
+  // const [isLoading, setIsLoading] = useState(true)
+  // const [error, setError] = useState<string | null>(null);
 
   const [showThemeMenu, setShowThemeMenu] = useState(false)
   // const [user, setUser] = useState(null)

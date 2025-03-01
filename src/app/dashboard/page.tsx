@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { cn } from "@/lib/utils"
 import {
   Avatar,
   AvatarFallback,
