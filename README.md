@@ -8,7 +8,7 @@
 - **ORM 框架**: Prisma 6.4
 - **动画 框架**: frame-motion 12.4.7
 - **UI 框架**：Tailwind CSS
-- **数据库**：MySQL 8.0
+- **数据库** postgres
 - **缓存**：Redis 7.0
 - **认证**：NextAuth.js
 - **状态管理**：Zustand (在学习中)
