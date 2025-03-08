@@ -1,0 +1,42 @@
+{
+  "sections": [
+    {
+      "id": "personalInfo",
+      "title": "个人信息",
+      "style": "bg-white p-6 rounded-lg shadow",
+      "content": [
+        { "label": "姓名", "value": "张三" },
+        { "label": "职位", "value": "全栈开发工程师" },
+        { "label": "邮箱", "value": "example@email.com" },
+        { "label": "地点", "value": "北京" }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "专业技能",
+      "style": "bg-white p-6 rounded-lg shadow",
+      "content": [
+        "前端：React, Next.js, TypeScript, Tailwind CSS",
+        "后端：Node.js, Express, NestJS",
+        "数据库：MySQL, MongoDB, Redis",
+        "其他：Git, Docker, CI/CD"
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "工作经历",
+      "style": "bg-white p-6 rounded-lg shadow",
+      "content": [
+        {
+          "title": "高级前端开发工程师 - XX科技",
+          "date": "2022年3月 - 至今",
+          "details": [
+            "负责公司核心产品的前端开发",
+            "优化前端性能，提升用户体验",
+            "指导初级开发人员，组织技术分享"
+          ]
+        }
+      ]
+    }
+  ]
+}

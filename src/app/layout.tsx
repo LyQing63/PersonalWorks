@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "个人作品集",
-  description: "个人作品集展示网站",
+  title: "首页 | 个人作品集",
+  description: "个人作品集展示",
 };
 
 export default function RootLayout({
